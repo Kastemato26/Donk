@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Platform
   - Ladder
+  - FireBall
+  - Dragon
   layers:
   - Default
   - TransparentFX

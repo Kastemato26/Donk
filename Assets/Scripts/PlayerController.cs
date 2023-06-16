@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public GameController gameController;
+
     private Rigidbody2D body;
     // Input-muuttujat
     private float horizontalMovement;
@@ -107,6 +110,22 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ladder"))
         {
             canClimb = false;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Dragon"))
+        {
+            gameController.Win();
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("FireBall"))
+        {
+            gameController.Lose();
         }
     }
 }
